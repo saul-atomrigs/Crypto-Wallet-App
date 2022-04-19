@@ -1,3 +1,4 @@
+import MainLayout from '../screens/MainLayout'
 import Home from "./Home"
 import Portfolio from "./Portfolio"
 import Market from "./Market"
