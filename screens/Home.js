@@ -4,11 +4,15 @@ import {
     Text
 } from 'react-native';
 
+import { MainLayout } from './'
+
 const Home = () => {
     return (
-        <View>
-            <Text>Home</Text>
-        </View>
+        <MainLayout>
+            <View>
+                <Text>Home</Text>
+            </View>
+        </MainLayout>
     )
 }
 
