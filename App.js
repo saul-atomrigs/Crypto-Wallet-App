@@ -9,9 +9,8 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerShown: false
-      }}
+      <Stack.Navigator
+        screenOptions={{ headerShown: false }}
         initialRouteName={'MainLayout'}
       >
         <Stack.Screen
