@@ -11,3 +11,5 @@ const MainLayout = ({ children }) => {
     </View>
   )
 }
+
+export default MainLayout

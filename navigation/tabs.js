@@ -3,6 +3,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { connect } from 'react-redux';
+import { setTradeModalVisibility } from "../stores/tab/tabActions";
 
 import { Home, Portfolio, Market, Profile } from "../screens"
 import { TabIcon } from '../components'
@@ -21,7 +23,11 @@ const TabBarCustomButton = ({ children, onPress }) => {
   )
 }
 
-const Tabs = () => {
+const Tabs = ({ setTradeModalVisibility, isTradeModalVisible }) => {
+
+  function tradeTabButtonOnClickHandler() {
+    setTradeModalVisibility(!isTradeModalVisible)
+  }
 
   return (
     <Tab.Navigator
@@ -122,4 +128,18 @@ const Tabs = () => {
   )
 }
 
-export default Tabs;
+// export default Tabs;
+
+function mapStateToProps(state) {
+  return {
+    isTradeModalVisible: state.tabReducer.isTradeModalVisible
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    setTradeModalVisibility: (isVisible) => { return dispatch(setTradeModalVisibility(isVisible)) }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tabs)

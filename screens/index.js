@@ -8,5 +8,6 @@ export {
     Home,
     Portfolio,
     Market,
-    Profile
+    Profile,
+    MainLayout
 }
