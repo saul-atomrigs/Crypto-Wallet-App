@@ -49,7 +49,8 @@ const Tabs = ({ setTradeModalVisibility, isTradeModalVisible }) => {
               return (
                 <TabIcon
                   focused={focused}
-                  icon={icons.home}
+                  icon={isTradeModalVisible ? icons.close : icons.trade}
+                  iconStyle={isTradeModalVisible ?? { width: 15, height: 15 }}
                   label="Home"
                 />
               )
@@ -187,4 +188,3 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tabs)
 
-// 29:08

@@ -1,3 +1,7 @@
 import TabIcon from './TabIcon'
+import IconTextButton from './iconTextButton'
 
-export default TabIcon
+export {
+  TabIcon,
+  IconTextButton
+}
