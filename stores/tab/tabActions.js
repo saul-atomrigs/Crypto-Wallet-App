@@ -10,3 +10,4 @@ export function SET_TRADE_MODAL_VISIBILITY(isVisible) {
     dispatch(setTradeModalVisibilitySuccess(isVisible));
   }
 }
+
