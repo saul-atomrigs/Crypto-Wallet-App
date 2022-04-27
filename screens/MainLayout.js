@@ -36,6 +36,21 @@ const MainLayout = ({ children, isTradeModalVisible }) => {
     >
       {children}
 
+      {/* trade button 누르면 배경화면 검정색으로 */}
+      {isTradeModalVisible &&
+        <Animated.View
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: COLORS.transparentBlack,
+          }}
+          opacity={modalAnimatedValue}
+        />
+      }
+
       {/* Modal  */}
       <Animated.View
         style={{
@@ -76,4 +91,3 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(MainLayout)
 
-// 37.59
