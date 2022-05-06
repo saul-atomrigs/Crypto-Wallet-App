@@ -109,8 +109,8 @@ export function getCoinMarket(currency = "usd", orderBy = "market_cap_desc", spa
       } else {
         dispatch(getCoinMarketFailure(response.data))
       }
+    }).catch((error) => {
+      dispatch(getCoinMarketFailure(error))
     })
   }
 }
-
-// 56.25
