@@ -1,15 +1,18 @@
 import React from 'react';
-import {
-    View,
-    Text
-} from 'react-native';
-
+import { View, Text } from 'react-native';
+import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { getHoldings, getCoinMarket } from '../stores/market/marketActions';
-
 import { MainLayout } from './'
+import { SIZES, COLORS, FONTS, dummyData, icons } from '../constants'
 
-const Home = () => {
+const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
+
+    useFocusEffect(() => {
+        React.useCallback(() => {
+            getHoldings(holdings = dummyData.holdings)
+        }, [])
+    })
     return (
         <MainLayout>
             <View>
@@ -35,4 +38,4 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
-// 1.00.54
+// 1.02.44
