@@ -4,6 +4,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { getHoldings, getCoinMarket } from '../stores/market/marketActions';
 import { MainLayout } from './'
+import { BalanceInfo } from '../components'
 import { SIZES, COLORS, FONTS, dummyData, icons } from '../constants'
 
 const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
@@ -13,10 +14,21 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
             getHoldings(holdings = dummyData.holdings)
         }, [])
     })
+
+    function renderWalletInfoSection() {
+        return (
+            <View style={{ paddingHorizontal: SIZES.padding, borderBottomLeftRadius: 25, borderBottomRightRadius: 25, backgroundColor: COLORS.gray }}>
+                {/* Balance Info */}
+                <BalanceInfo title="Your wallet" displayAmount="45,000" changePct="2.30" containerStyle={{ marginTop: 50 }} />
+                {/* Buttons */}
+            </View>
+        )
+    }
     return (
         <MainLayout>
-            <View>
-                <Text>Home</Text>
+            <View style={{ flex: 1, backgroundColor: COLORS.black }}>
+                {/* Header - wallet info */}
+                {renderWalletInfoSection()}
             </View>
         </MainLayout>
     )
@@ -37,5 +49,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
-
-// 1.02.44
