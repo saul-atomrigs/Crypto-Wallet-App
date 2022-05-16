@@ -19,7 +19,7 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
         return (
             <View style={{ paddingHorizontal: SIZES.padding, borderBottomLeftRadius: 25, borderBottomRightRadius: 25, backgroundColor: COLORS.gray }}>
                 {/* Balance Info */}
-                <BalanceInfo title="Your wallet" displayAmount="45,000" changePct="2.30" containerStyle={{ marginTop: 50 }} />
+                <BalanceInfo title="Your wallet" displayAmount="45,000" changePct={2.30} containerStyle={{ marginTop: 50 }} />
                 {/* Buttons */}
             </View>
         )
@@ -49,3 +49,6 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
+
+
+// 1.14.17
