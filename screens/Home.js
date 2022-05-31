@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Text } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
@@ -10,7 +10,7 @@ import { SIZES, COLORS, FONTS, dummyData, icons } from '../constants'
 const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
 
     useFocusEffect(() => {
-        React.useCallback(() => {
+        useCallback(() => {
             getHoldings(holdings = dummyData.holdings)
         }, [])
     })
