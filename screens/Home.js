@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
-import { getHoldings, getCoinMarket } from '../stores/market/marketActions';
-import { MainLayout } from './'
-import { BalanceInfo } from '../components'
-import { SIZES, COLORS, FONTS, dummyData, icons } from '../constants'
+import { BalanceInfo } from '../components';
+import { COLORS, dummyData, SIZES } from '../constants';
+import { getCoinMarket, getHoldings } from '../stores/market/marketActions';
+import { MainLayout } from './';
 
 const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
 
@@ -15,11 +15,17 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
         }, [])
     })
 
+    let totalWallet = myHoldings.reduce((a, b) => a + (b.total \\ 0), 0)
+
+    let valueChange = myHoldings.reduce((a, b) => a + (b.holding_value_change \\ 0), 0)
+
+    let percChange = valueChange / (totalWallet - valueChange) * 100
+
     function renderWalletInfoSection() {
         return (
             <View style={{ paddingHorizontal: SIZES.padding, borderBottomLeftRadius: 25, borderBottomRightRadius: 25, backgroundColor: COLORS.gray }}>
                 {/* Balance Info */}
-                <BalanceInfo title="Your wallet" displayAmount="45,000" changePct={2.30} containerStyle={{ marginTop: 50 }} />
+                <BalanceInfo title="Your wallet" displayAmount="45,000" changePct={percChange} containerStyle={{ marginTop: 50 }} />
                 {/* Buttons */}
             </View>
         )
@@ -51,4 +57,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
 
-// 1.14.17
+// 1:17:12

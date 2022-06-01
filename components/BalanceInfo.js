@@ -27,6 +27,10 @@ export default function BalanceInfo({ title, displayAmount, changePct, container
         <Text style={{ marginLeft: SIEZ.base, alignSelf: 'flex-end', color: (changePct == 0) ? COLORS.lightGray3 : COLORS.red, ...FONTS.h4 }}>
           {changePct.toFixed(2)}%
         </Text>
+
+        <Text style={{ marginLeft: SIZES.radius, alignSelf: 'flex-end', color: COLORS.lightGray3, ...FONTS.h5 }}>
+
+        </Text>
       </View>
     </View >
   )

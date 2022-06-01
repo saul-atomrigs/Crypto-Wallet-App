@@ -37,7 +37,7 @@ export function getHoldings(holdings = [], currency = "usd", orderBy = "market_c
         Accept: "application/json"
       }
     }).then((response) => {
-      if (response.state == 200) {
+      if (response.status == 200) {
         //message data
         let myHoldings = response.data.map((item) => {
           // retrieve our current holdings
@@ -104,7 +104,7 @@ export function getCoinMarket(currency = "usd", orderBy = "market_cap_desc", spa
         Accept: "application/json"
       }
     }).then((response) => {
-      if (response.state == 200) {
+      if (response.status == 200) {
         dispatch(getCoinMarketSuccess(response.data))
       } else {
         dispatch(getCoinMarketFailure(response.data))
