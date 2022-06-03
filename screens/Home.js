@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { useFocusEffect } from '@react-navigation/native';
 import { connect } from 'react-redux';
-import { BalanceInfo } from '../components';
+import { BalanceInfo, IconTextButton } from '../components';
 import { COLORS, dummyData, SIZES } from '../constants';
 import { getCoinMarket, getHoldings } from '../stores/market/marketActions';
 import { MainLayout } from './';
@@ -27,6 +27,13 @@ const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
                 {/* Balance Info */}
                 <BalanceInfo title="Your wallet" displayAmount="45,000" changePct={percChange} containerStyle={{ marginTop: 50 }} />
                 {/* Buttons */}
+                <View style={{ flexDirection: 'row', marginTop: 30, marginBottom: -15, paddingHorizontal: SIZES.radius }}>
+                    <IconTextButton
+                        label="Transfer"
+                        icon={icons.send}
+                        containerStyle={{ flex: 1, height: 40, marginRight: SIZES.radius }}
+                    />
+                </View>
             </View>
         )
     }
@@ -57,4 +64,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(Home)
 
 
-// 1:17:12
+// 1:18.24
