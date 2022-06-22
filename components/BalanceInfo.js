@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import { SIZES, COLORS, FONTS, icons } from "../constants"
 
 export default function BalanceInfo({ title, displayAmount, changePct, containerStyle }) {
