@@ -6,7 +6,7 @@ import { BalanceInfo, IconTextButton } from '../components';
 import { COLORS, dummyData, SIZES } from '../constants';
 import { getCoinMarket, getHoldings } from '../stores/market/marketActions';
 import { MainLayout } from './';
-
+//
 const Home = ({ getHoldings, getCoinMarket, myHoldings, coins }) => {
 
     useFocusEffect(() => {
